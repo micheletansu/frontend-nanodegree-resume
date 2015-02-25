@@ -7,6 +7,99 @@ Don't worry, you'll learn what's going on in this file throughout the course. Yo
 Cameron Pittman
 */
 
+var model = {
+        bio: {
+            "name": "Michele Tansu",
+            "role": "Web Developer",
+            "contacts": {
+                "mobile": "389..",
+                "email": "m.t.@hotmail.com",
+                "github": "m.t.",
+                "twitter": "m.t.twitter.com",
+                "location": "Milano"
+            },
+            "welcomeMessage": "Welcome in my resume page",
+            "skills": [
+                "javscript",
+                "java",
+                "angularJS"
+            ],
+            "biopic": "myPicUrl",
+            "display": "function(){}"
+        },
+        education: {
+            "schools": [
+                {
+                    "name": "Università Bicocca",
+                    "location": "Milano",
+                    "degree": "Laurea in Informatica",
+                    "majors": [
+                        "array",
+                        "of",
+                        "strings"
+                    ],
+                    "dates": 2011,
+                    "url": "www.unimib.it"
+                },
+                {
+                    "name": "Politecnico di Milano",
+                    "location": "Como",
+                    "degree": "Laurea in Ingegneria Informatica",
+                    "majors": [
+                        "array",
+                        "of",
+                        "strings"
+                    ],
+                    "dates": 2012,
+                    "url": "www.polimi.it"
+                }
+            ],
+            "onlineCourses": [
+                {
+                    "title": "javasriptBasic",
+                    "school": "Udacity",
+                    "date": 2015,
+                    "url": "string"
+                }
+            ],
+            "display": "function(){}"
+        },
+        work: {
+            "jobs": [
+                {
+                    "employer": "Delfinia",
+                    "title": "Manovale",
+                    "location": "Aggius",
+                    "dates": "2012 - 2013",
+                    "description": "string "
+                },
+                {
+                    "employer": "Edison",
+                    "title": "Data Warehousing",
+                    "location": "Parigi",
+                    "dates": "2012 - 2013",
+                    "description": "Data Warehousing e reportistica con Oracle, QlickView e data manager"
+                }
+            ],
+            "display": "function() {}"
+        },
+        projects: {
+            "projects": [
+                {
+                    "title": "string",
+                    "dates": "-12/2/2009-",
+                    "description": "string",
+                    "images": [
+                        "url1",
+                        "url2"
+                    ]
+                }
+            ],
+            "display": "function taking no parameters"
+        }
+    };
+
+
 
 /*
 These are HTML strings. As part of the course, you'll be using JavaScript functions
@@ -85,6 +178,7 @@ function logClicks(x,y) {
 }
 
 $(document).click(function(loc) {
+  var a = 0;//TODO
   // your code goes here!
 });
 
@@ -124,18 +218,18 @@ function initializeMap() {
     var locations = [];
 
     // adds the single location property from bio to the locations array
-    locations.push(bio.contacts.location);
+    locations.push(model.bio.contacts.location);
 
     // iterates through school locations and appends each location to
     // the locations array
-    for (var school in education.schools) {
-      locations.push(education.schools[school].location);
+    for (var school in model.education.schools) {
+      locations.push(model.education.schools[school].location);
     }
 
     // iterates through work locations and appends each location to
     // the locations array
-    for (var job in work.jobs) {
-      locations.push(work.jobs[job].location);
+    for (var job in model.work.jobs) {
+      locations.push(model.work.jobs[job].location);
     }
 
     return locations;
@@ -171,6 +265,8 @@ function initializeMap() {
     // hmmmm, I wonder what this is about...
     google.maps.event.addListener(marker, 'click', function() {
       // your code goes here!
+      a;
+      //TODO
     });
 
     // this is where the pin actually gets added to the map.
@@ -233,11 +329,11 @@ Uncomment the code below when you're ready to implement a Google Map!
 */
 
 // Calls the initializeMap() function when the page loads
-//window.addEventListener('load', initializeMap);
+window.addEventListener('load', initializeMap);
 
 // Vanilla JS way to listen for resizing of the window
 // and adjust map bounds
-//window.addEventListener('resize', function(e) {
+window.addEventListener('resize', function(e) {
   // Make sure the map bounds get updated on page resize
-//  map.fitBounds(mapBounds);
-//});
+  map.fitBounds(mapBounds);
+});
